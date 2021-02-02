@@ -24,10 +24,8 @@ jobs:
           ${{ runner.OS }}-
     - name: Install dependencies
       run: npm ci
-    - name: Test
-      run: npm test
-    - name: Build release SDK
-      run: npm run build-minified
+    - name: Lint, test and build release SDK
+      run: npm run ci
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
