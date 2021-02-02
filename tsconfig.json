@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outFile": "./build/batch-webview-sdk.js",
+    "target": "es6",
+    "strict": true,
+    "module": "none",
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "lib": [
+      "dom",
+      "es6"
+    ]
+  },
+  "include": [
+    "./src/sdk.ts",
+    "./src/**/*.d.ts"
+  ]
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>In-App Debugger</title>
+	<link rel="stylesheet" href="style.css"/>
+	<script src="uuid.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app-root">
+		<div class="left-split">
+			<h1>Preview</h1>
+			<div>
+				URL: <input v-model="formatURL" type="text" /> <input v-on:click="loadURL" type="button" value="Load" />
+				<div>
+					<input v-on:click="saveURL" type="button" value="Remember URL" />
+					<input v-on:click="forgetURL" type="button" value="Clear remembered URL" />
+				</div>
+				<div class="preview-container">
+					<iframe :src="iframe.src" id="preview-frame"></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="right-split">
+			<h1>Events</h1>
+			<ul id="event-list" class="event-list">
+				<li v-for="event in events">
+					SDK Triggered method "{{ event.method }}". Arguments: "{{ event.args }}". Replied: "{{ event.reply }}".
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+<script src="devkit.js"></script>
+</html>

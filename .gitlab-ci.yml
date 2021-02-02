@@ -1,0 +1,12 @@
+stages:
+  - test
+
+after_script:
+  - docker-compose -p $CI_COMMIT_REF_SLUG down
+
+build_and_test:
+  stage: test
+  script:
+    - docker-compose -p $CI_COMMIT_REF_SLUG pull --ignore-pull-failures
+    - docker-compose -p $CI_COMMIT_REF_SLUG build --pull base
+    - docker-compose -p $CI_COMMIT_REF_SLUG run tests

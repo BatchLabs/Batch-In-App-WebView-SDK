@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  tests:
+    extends: base
+    command: npm run ci

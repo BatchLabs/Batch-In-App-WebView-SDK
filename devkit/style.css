@@ -1,0 +1,54 @@
+#app-root {
+	display: flex;
+	flex-direction: row;
+	font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+}
+
+.right-split {
+	flex-grow: 1;
+	padding: 10px;
+	border-left: gray 1px solid;
+}
+
+.left-split {
+	height: 100%;
+	padding: 10px;
+}
+
+.left-split input[type="text"] {
+	width: 280px;
+}
+
+.preview-container {
+	/* iPhone 6S */
+	width: 375px;
+	height: 667px;
+	border: black 1px solid;
+	margin-top: 10px;
+	background-color: white;
+}
+
+.preview-container iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+h1 {
+	border-bottom: #dedede 1px solid;
+}
+
+.event-list {
+	border-left: tomato 1px solid;
+	list-style: none;
+	padding-left: 10px;
+	max-height: 800px;
+	overflow-y: auto;
+}
+
+.event-list li {
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: #dedede 1px solid;
+}
