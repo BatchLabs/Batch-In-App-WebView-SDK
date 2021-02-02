@@ -1,0 +1,71 @@
+name: Test and build release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-github-release:
+    name: Create Github Release
+    runs-on: ubuntu-20.04
+    outputs:
+      upload_url: ${{ steps.create-github-release.outputs.upload_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Github Release
+        id: create-github-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+  build:
+    name: Test and build
+    runs-on: ubuntu-20.04
+    needs: create-github-release
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '15.x'
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      with:
+        # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.npm
+        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.OS }}-node-
+          ${{ runner.OS }}-
+    - name: Install dependencies
+      run: npm ci
+    - name: Lint, test and build release SDK
+      run: npm run ci
+    - name: Archive build artifacts
+      run: zip -r --junk-paths build.zip build/*
+    - name: Upload Release Asset (minified javascript)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-github-release.outputs.upload_url }}
+        asset_path: build/batch-webview-sdk.min.js
+        asset_name: batch-webview-sdk.min.js
+        asset_content_type: application/javascript
+    - name: Upload Release Asset (.zip)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create-github-release.outputs.upload_url }}
+        asset_path: build.zip
+        asset_name: batch-webview-sdk-${{ github.ref }}.zip
+        asset_content_type: application/javascript  
