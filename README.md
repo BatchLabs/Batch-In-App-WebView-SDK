@@ -1,5 +1,17 @@
 # Batch In-App WebView SDK
 
+This repository hosts:
+ - The Javascript "bridge" SDK, which allows communication from the page to the native component of Batch in iOS / Android apps.
+ - A development kit, which is a simple webpage that allows.  
+   See the devkit folder's README for more info
+ - A sample template, implementing a user survey.  
+   The sample is responsive, implements iOS specific guidelines and uses the Javascript SDK to track events back to Batch.  
+   See `devkit/samples/survey` for more information.
+
+# Requirements
+
+This SDK requires a relatively modern browser that supports `Promise`.  
+On iOS/Android, it requires Batch SDK 1.17 or higher.
 
 # Integrating the SDK into your web page
 
@@ -10,11 +22,17 @@ Add the following tag on your page:
 ```
 As the script is very light, we encourage you to synchronously load it in `<head>` so that it is always available.
 
+The SDK will be available as a global object called `batchInAppSDK`.
+
 You can also host `batch-webview-sdk.min.js` on your own server. 
 
 Releases are [published on npm]](https://www.npmjs.com/package/@batch.com/in-app-webview-sdk): `@batch.com/in-app-webview-sdk`
 
-# Developing the SDK
+## API Reference
+
+The API reference can be found [here, in the form of a Typescript definition](https://github.com/BatchLabs/Batch-In-App-WebView-SDK/blob/master/src/index.d.ts).
+
+## Developing the SDK
 
 Files are located in "src" and are built in "build".
 
