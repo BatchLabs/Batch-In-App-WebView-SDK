@@ -3,7 +3,16 @@
 
 # Integrating the SDK into your web page
 
-TODO
+Add the following tag on your page:
+```
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@batch.com/in-app-webview-sdk@1.0/build/batch-webview-sdk.min.js"></script>
+```
+As the script is very light, we encourage you to synchronously load it in `<head>` so that it is always available.
+
+You can also host `batch-webview-sdk.min.js` on your own server. 
+
+Releases are [published on npm]](https://www.npmjs.com/package/@batch.com/in-app-webview-sdk): `@batch.com/in-app-webview-sdk`
 
 # Developing the SDK
 
