@@ -22,8 +22,8 @@
     "test": "jest --collect-coverage",
     "watch": "node watch.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Batch.com",
+  "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
