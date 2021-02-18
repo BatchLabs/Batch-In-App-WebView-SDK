@@ -19,6 +19,7 @@ const app = new Vue({
     formatURL: defaultFormatURL,
     iframe: {
       src: defaultFormatURL,
+      key: 0,
     },
     events: [],
   },
@@ -29,6 +30,7 @@ const app = new Vue({
     loadURL: function () {
       console.log("Loading ", this.formatURL);
       this.iframe.src = this.formatURL;
+      this.iframe.key = this.iframe.key + 1;
     },
     saveURL: function () {
       localStorage.setItem(defaultURLLocalStorageKey, this.formatURL);

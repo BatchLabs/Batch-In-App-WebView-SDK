@@ -19,7 +19,7 @@
 					<input v-on:click="forgetURL" type="button" value="Clear remembered URL" />
 				</div>
 				<div class="preview-container">
-					<iframe :src="iframe.src" id="preview-frame"></iframe>
+					<iframe :key="iframe.key" :src="iframe.src" id="preview-frame"></iframe>
 				</div>
 			</div>
 		</div>
