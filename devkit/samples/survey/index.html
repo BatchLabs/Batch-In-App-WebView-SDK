@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, viewport-fit=cover">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Batch SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@batch.com/in-app-webview-sdk@1.0.0-beta.1/build/batch-webview-sdk.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="inner-content">
+            <lottie-player id="hero" src="https://assets9.lottiefiles.com/private_files/lf30_ltuqrtmn.json"  background="transparent"  speed="1" loop autoplay></lottie-player>
+                <h1>Wow! You seem to really like the app</h1>
+                <div id="survey">
+                    <h2>Tell us what part of our service stands out the most to you 🙂</h2>
+                    <ul>
+                        <li><button value="enjoy_experience">I enjoy the app user experience</button></li>
+                        <li><button value="find_products">I always find the products I am looking for</button></li>
+                        <li><button value="best_prices">I find the best prices here</button></li>
+                        <li><button value="delivery_service">I love your delivery service</button></li>
+                    </ul>
+                </div>
+                <div id="bottom-buttons">
+                    <a target="_blank" href="license.html?batchAnalyticsID=license">License</a>
+                    <div class="flex-spacer"></div>
+                    <button value="later">I'll answer later</button>
+                </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
