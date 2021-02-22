@@ -1,6 +1,6 @@
 {
   "name": "@batch.com/in-app-webview-sdk",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Batch.com's In-App messaging webview SDK. It is meant to be used in webview formats, which is displayed using our mobile SDKs.",
   "repository": "git://github.com/BatchLabs/Batch-In-App-WebView-SDK.git",
   "main": "build/batch-webview-sdk.min.js",
