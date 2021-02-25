@@ -2,7 +2,7 @@
 
 This repository hosts:
  - The Javascript "bridge" SDK, which allows communication from the page to the native component of Batch in iOS / Android apps.
- - A development kit, which is a simple webpage that allows.  
+ - A development kit, which is a simple webpage that allows testing of your implementation of the SDK in your page.  
    See the devkit folder's README for more info
  - A sample template, implementing a user survey.  
    The sample is responsive, implements iOS specific guidelines and uses the Javascript SDK to track events back to Batch.  
