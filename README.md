@@ -26,7 +26,7 @@ The SDK will be available as a global object called `batchInAppSDK`.
 
 You can also host `batch-webview-sdk.min.js` on your own server. 
 
-Releases are [published on npm]](https://www.npmjs.com/package/@batch.com/in-app-webview-sdk): `@batch.com/in-app-webview-sdk`
+Releases are [published on npm](https://www.npmjs.com/package/@batch.com/in-app-webview-sdk): `@batch.com/in-app-webview-sdk`
 
 ## API Reference
 
