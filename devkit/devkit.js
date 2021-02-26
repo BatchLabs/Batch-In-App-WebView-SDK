@@ -22,6 +22,7 @@ const app = new Vue({
       key: 0,
     },
     events: [],
+    rawCustomPayload: "{}",
   },
   methods: {
     appendEvent: function (method, args, reply) {
@@ -37,6 +38,20 @@ const app = new Vue({
     },
     forgetURL: function () {
       localStorage.removeItem(defaultURLLocalStorageKey);
+    },
+    getJSONCustomPayload: function () {
+      try {
+        const json = JSON.parse(this.rawCustomPayload);
+        if (Array.isArray(json) || typeof json !== "object") {
+          return undefined;
+        }
+        return json;
+      } catch {
+        return undefined;
+      }
+    },
+    isCustomPayloadValid: function () {
+      return this.getJSONCustomPayload() !== undefined;
     },
   },
 });
@@ -68,12 +83,14 @@ function handleBatchMessage(method, args, taskID) {
     case "gettrackingid":
       reply = "my_awesome_tracking_campaign1";
       break;
-    case "getcustompayload":
-      reply = JSON.stringify({
-        foo: "bar",
-        utm_source: "batch",
-      });
+    case "getcustompayload": {
+      let customPayload = app.getJSONCustomPayload();
+      if (customPayload === undefined) {
+        customPayload = {};
+      }
+      reply = JSON.stringify(customPayload);
       break;
+    }
     default:
       error = `unknown method ${method}`;
       break;

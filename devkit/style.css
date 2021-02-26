@@ -19,6 +19,15 @@
 	width: 280px;
 }
 
+#custom-payload {
+	width: 375px;
+	font-family: monospace;
+}
+
+.error {
+	color: red;
+}
+
 .preview-container {
 	/* iPhone 6S */
 	width: 375px;

@@ -21,6 +21,13 @@
 				<div class="preview-container">
 					<iframe :key="iframe.key" :src="iframe.src" id="preview-frame"></iframe>
 				</div>
+
+				<h2>Custom Payload</h2>
+				<div>
+					<textarea v-model="rawCustomPayload" id="custom-payload"></textarea><br/>
+					<span class="error" v-if="!isCustomPayloadValid()">Invalid custom payload!</span><br/>
+					<span>Reload the preview to apply the custom payload</span>
+				</div>
 			</div>
 		</div>
 		<div class="right-split">
