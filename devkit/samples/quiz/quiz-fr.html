@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, viewport-fit=cover"
+    />
+    <!-- Batch SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@batch.com/in-app-webview-sdk@1.0/build/batch-webview-sdk.min.js"></script>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+      }
+
+      html {
+        height: 100%;
+      }
+
+      input {
+        -webkit-appearance: none;
+      }
+      
+      body {
+        font-family: "Lato", sans-serif;
+        font-style: normal;
+
+        margin: 0;
+        height: 100%;
+        background-color: #E5E5E5;
+
+        /* Disable text selection */
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      h1,
+      h2 {
+        color: #574949;
+        text-align: center;
+        margin: 40px 0 25px 0;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 35px;
+      }
+      h2 {
+        font-size: 20px;
+        flex-grow: 1;
+      }
+
+      #content {
+        height: 100%;
+        background: radial-gradient(
+            109.16% 109.16% at 50% -18.38%,
+            #B1FFDE 0%,
+            rgba(200, 255, 232, 0.701539) 29.85%,
+            rgba(255, 255, 255, 0) 100%
+          ),
+          #FFFFFF;
+      }
+
+      #inner-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      #img {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 25px 0;
+      }
+      #img img {
+        width: 60%;
+        height: 100%;
+      }
+
+      #participate {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        height: 50px;
+        width: 100%;
+        background-color: #50E4A6;
+        border: 2px solid #50E4A6;
+        color: #fff;
+        border-radius: 100px;
+        font-size: 20px;
+        line-height: 18px;
+      }
+
+      /* Mobile landscape */
+      @media screen and (orientation: landscape) and (max-height: 639px) {
+        #img {
+          position: absolute;
+          width: 200px;
+          margin-left: -220px;
+        }
+
+        #inner-content {
+          margin-left: 220px;
+        }
+      }
+
+      /* Desktop */
+      @media screen and (min-width: 640px) and (min-height: 640px) {
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background-color: #eee;
+        }
+
+        #content {
+          max-height: min(736px, 100%);
+          width: 414px;
+          border-radius: 20px;
+          box-shadow: 0px 15px 73px 0px rgba(0, 0, 0, 0.65);
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", event => {});
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="inner-content">
+        <h1>C'est l'heure de notre jeu concours !</h1>
+        <div id="img">
+          <img
+            src="https://cdn.glitch.com/27bb6469-f4f9-4da1-ba6f-70170818f938%2FpresentGuess.png?v=1617877447650"
+          />
+        </div>
+        <h2>Tentez votre chance, vous n'allez pas être déçu !</h2>
+        <input id="participate" type="submit" value="Je participe" onclick="window.location = 'quiz-won-fr.html'" />
+      </div>
+    </div>
+  </body>
+</html>
