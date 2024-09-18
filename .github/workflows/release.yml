@@ -13,7 +13,7 @@ jobs:
       upload_url: ${{ steps.create-github-release.outputs.upload_url }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Create Github Release
         id: create-github-release
         uses: actions/create-release@v1
@@ -31,13 +31,13 @@ jobs:
     needs: create-github-release
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '15.x'
     - name: Cache Node.js modules
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
         path: ~/.npm
