@@ -14,6 +14,12 @@
 			<h1>Preview</h1>
 			<div>
 				URL: <input v-model="formatURL" type="text" /> <input v-on:click="loadURL" type="button" value="Load" />
+				<div class="preset-row">
+					Presets:
+					<input v-on:click="applyPresetURL('quiz')" type="button" value="Quiz" />
+					<input v-on:click="applyPresetURL('newsletter')" type="button" value="Newsletter" />
+					<input v-on:click="applyPresetURL('survey')" type="button" value="Survey" />
+				</div>
 				<div>
 					<input v-on:click="saveURL" type="button" value="Remember URL" />
 					<input v-on:click="forgetURL" type="button" value="Clear remembered URL" />

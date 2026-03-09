@@ -3,6 +3,15 @@
 /* global devkitUUID */
 
 const defaultURLLocalStorageKey = "batch_devkit_saved_url";
+const sampleURLPaths = {
+  quiz: "quiz/quiz-fr.html",
+  newsletter: "newsletter/newsletter-fr.html",
+  survey: "survey/index.html",
+};
+
+function getSampleURL(samplePath) {
+  return `${window.location.origin}/devkit/samples/${samplePath}`;
+}
 
 const defaultFormatURL = (() => {
   const savedURL = localStorage.getItem(defaultURLLocalStorageKey);
@@ -38,6 +47,13 @@ const app = new Vue({
     },
     forgetURL: function () {
       localStorage.removeItem(defaultURLLocalStorageKey);
+    },
+    applyPresetURL: function (presetName) {
+      const samplePath = sampleURLPaths[presetName];
+      if (typeof samplePath !== "string") {
+        return;
+      }
+      this.formatURL = getSampleURL(samplePath);
     },
     getJSONCustomPayload: function () {
       try {

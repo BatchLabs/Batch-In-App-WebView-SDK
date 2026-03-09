@@ -19,6 +19,15 @@
 	width: 280px;
 }
 
+.preset-row {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.preset-row input[type="button"] {
+	margin-left: 6px;
+}
+
 #custom-payload {
 	width: 375px;
 	font-family: monospace;

@@ -175,6 +175,17 @@
       throw errorText + " (-3)";
     }
 
+    private static _normalizeError(error: unknown): string | Error | undefined {
+      if (error instanceof Error) {
+        return error;
+      }
+      if (typeof error === "string") {
+        return error;
+      }
+
+      return undefined;
+    }
+
     private _setupBrowserCallback(): void {
       // We only need to setup a global handler on desktop platforms
       // iOS will call __handle_callback directly, while Android can synchronously get the result
@@ -207,7 +218,7 @@
               ) as BatchAndroidBridgeResult;
               task.handleCallback(androidResponse.error, androidResponse.result);
             } catch (err) {
-              task.handleCallback(err);
+              task.handleCallback(SDK._normalizeError(err));
             }
           }
           break;
@@ -235,7 +246,7 @@
                 task.handleCallback(undefined, result);
               })
               .catch((err) => {
-                task.handleCallback(err);
+                task.handleCallback(SDK._normalizeError(err));
               });
             // Delete the useless task
             delete this._tasks[taskID];

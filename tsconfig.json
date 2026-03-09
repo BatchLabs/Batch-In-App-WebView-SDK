@@ -4,6 +4,7 @@
     "outFile": "./build/batch-webview-sdk.js",
     "target": "es6",
     "strict": true,
+    "types": [],
     "module": "none",
     "moduleResolution": "node",
     "inlineSourceMap": true,
